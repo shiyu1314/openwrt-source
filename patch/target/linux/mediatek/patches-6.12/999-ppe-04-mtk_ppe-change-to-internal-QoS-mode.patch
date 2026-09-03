@@ -27,15 +27,15 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -1783,6 +1783,7 @@ struct mtk_eth {
+@@ -1799,6 +1799,7 @@ struct mtk_eth {
+ 
  	struct metadata_dst		*dsa_meta[MTK_MAX_DSA_PORTS];
  
- 	u8				debug_level;
 +	u8				qos_toggle;
  	u8				l4s_toggle;
  	struct mtk_ppe			*ppe[3];
  	struct rhashtable		flow_table;
-@@ -2000,6 +2001,51 @@ static inline u32 mtk_get_ib2_multicast_
+@@ -2013,6 +2014,51 @@ static inline u32 mtk_get_ib2_multicast_
  	return MTK_FOE_IB2_MULTICAST;
  }
  

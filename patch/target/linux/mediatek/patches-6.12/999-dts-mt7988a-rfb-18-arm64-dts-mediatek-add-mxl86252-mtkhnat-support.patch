@@ -24,7 +24,7 @@ Subject: [PATCH] arm64: dts: add mtkhnat driver support
  };
 --- a/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth2-mxl86252-aqr.dtso
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth2-mxl86252-aqr.dtso
-@@ -145,4 +145,11 @@
+@@ -147,4 +147,11 @@
  			dsa,member = <1 0>;
  		};
  	};

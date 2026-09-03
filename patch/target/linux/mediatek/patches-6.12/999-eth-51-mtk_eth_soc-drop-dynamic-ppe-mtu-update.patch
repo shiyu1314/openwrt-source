@@ -38,7 +38,7 @@ unexpected behavior on offloaded flows.
  
  	ppe_num = eth->soc->ppe_num;
  
-@@ -4695,10 +4695,6 @@ static int mtk_open(struct net_device *d
+@@ -4690,10 +4690,6 @@ static int mtk_open(struct net_device *d
  			mtk_gdm_config(eth, target_mac->id, gdm_config);
  		}
  
@@ -49,7 +49,7 @@ unexpected behavior on offloaded flows.
  		if (MTK_HAS_CAPS(eth->soc->caps, MTK_HWTSTAMP))
  			mtk_ptp_clock_init(eth);
  
-@@ -5769,16 +5765,13 @@ static int mtk_change_mtu(struct net_dev
+@@ -5762,16 +5758,13 @@ static int mtk_change_mtu(struct net_dev
  {
  	struct mtk_mac *mac = netdev_priv(dev);
  	struct mtk_eth *eth = mac->hw;

@@ -136,7 +136,7 @@ Usage:
  
  #include "mtk_eth_soc.h"
  #include "mtk_ppe_regs.h"
-@@ -470,6 +471,87 @@ static const struct file_operations mtk_
+@@ -416,6 +417,87 @@ static const struct file_operations mtk_
  	.release = single_release,
  };
  
@@ -224,10 +224,10 @@ Usage:
  static int
  mtk_ppe_internal_debugfs_foe_all_show(struct seq_file *m, void *private)
  {
-@@ -615,6 +697,9 @@ int mtk_ppe_internal_debugfs_init(struct
+@@ -559,6 +641,9 @@ int mtk_ppe_internal_debugfs_init(struct
+ 			    &mtk_ppe_internal_debugfs_dscp_fops);
+ 	debugfs_create_file("qos_toggle", S_IRUGO, root, eth,
  			    &mtk_ppe_internal_debugfs_qos_fops);
- 	debugfs_create_file("debug_level", S_IRUGO, root, eth,
- 			    &mtk_ppe_internal_debugfs_level_fops);
 +	if (mtk_is_netsys_v2_or_greater(eth))
 +		debugfs_create_file("hash_mode", S_IRUGO, root, eth,
 +				    &mtk_ppe_internal_debugfs_hash_fops);

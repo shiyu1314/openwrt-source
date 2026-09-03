@@ -44,7 +44,7 @@ Signed-off-by: Rex Lu <rex.lu@mediatek.com>
  		*ib2 &= ~MTK_FOE_IB2_PORT_MG_V2;
 --- a/drivers/net/ethernet/mediatek/mtk_ppe.h
 +++ b/drivers/net/ethernet/mediatek/mtk_ppe.h
-@@ -453,7 +453,7 @@ int mtk_foe_entry_set_tops_entry(struct
+@@ -451,7 +451,7 @@ int mtk_foe_entry_set_tops_entry(struct
  				 int tops_entry);
  int mtk_foe_entry_set_wdma(struct mtk_eth *eth, struct mtk_foe_entry *entry,
  			   int wdma_idx, int txq, int bss, int wcid,

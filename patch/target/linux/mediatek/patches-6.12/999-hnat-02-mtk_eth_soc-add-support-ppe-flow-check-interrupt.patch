@@ -1,6 +1,6 @@
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -118,6 +118,9 @@
+@@ -119,6 +119,9 @@
  
  /* Frame Engine Interrupt Status 2 Register */
  #define MTK_FE_INT_STATUS2	0x28

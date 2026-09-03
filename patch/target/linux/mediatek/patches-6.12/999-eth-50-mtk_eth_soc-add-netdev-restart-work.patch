@@ -39,7 +39,7 @@ take effect until a network restart was triggered in user space.
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -5735,13 +5735,45 @@ static void mtk_uninit(struct net_device
+@@ -5728,13 +5728,45 @@ static void mtk_uninit(struct net_device
  	mtk_rx_irq_disable(eth, ~0);
  }
  
@@ -85,7 +85,7 @@ take effect until a network restart was triggered in user space.
  
  	max_mtu = mtk_max_gmac_mtu(eth);
  	for (i = 0; i < ARRAY_SIZE(eth->ppe); i++)
-@@ -5761,6 +5793,13 @@ static int mtk_change_mtu(struct net_dev
+@@ -5754,6 +5786,13 @@ static int mtk_change_mtu(struct net_dev
  		eth->rx_buf_len = DIV_ROUND_UP(length, MTK_MAX_RX_LENGTH_UNIT) *
  				  MTK_MAX_RX_LENGTH_UNIT;
  
@@ -99,7 +99,7 @@ take effect until a network restart was triggered in user space.
  	return 0;
  }
  
-@@ -6043,6 +6082,7 @@ static int mtk_cleanup(struct mtk_eth *e
+@@ -6036,6 +6075,7 @@ static int mtk_cleanup(struct mtk_eth *e
  	mtk_unreg_dev(eth);
  	mtk_free_dev(eth);
  	cancel_work_sync(&eth->pending_work);
@@ -107,7 +107,7 @@ take effect until a network restart was triggered in user space.
  	cancel_delayed_work_sync(&eth->reset.monitor_work);
  
  	return 0;
-@@ -7180,6 +7220,7 @@ static int mtk_probe(struct platform_dev
+@@ -7173,6 +7213,7 @@ static int mtk_probe(struct platform_dev
  
  	eth->msg_enable = netif_msg_init(mtk_msg_level, MTK_DEFAULT_MSG_ENABLE);
  	INIT_WORK(&eth->pending_work, mtk_pending_work);

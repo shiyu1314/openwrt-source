@@ -10,7 +10,15 @@ v1: Add xfrm hw offload
 
 --- a/drivers/net/ethernet/mediatek/mtk_ppe.c
 +++ b/drivers/net/ethernet/mediatek/mtk_ppe.c
-@@ -620,6 +620,28 @@ int mtk_foe_entry_set_pppoe(struct mtk_e
+@@ -12,6 +12,7 @@
+ #include <net/dst_metadata.h>
+ #include <net/dsa.h>
+ #include <net/ipv6.h>
++#include <net/netfilter/nf_flow_table.h>
+ 
+ #include "mtk_eth_soc.h"
+ #include "mtk_ppe.h"
+@@ -619,6 +620,28 @@ int mtk_foe_entry_set_pppoe(struct mtk_e
  	return 0;
  }
  
@@ -39,7 +47,7 @@ v1: Add xfrm hw offload
  int mtk_foe_entry_set_wdma(struct mtk_eth *eth, struct mtk_foe_entry *entry,
  			   int wdma_idx, int txq, int bss, int wcid,
  			   bool amsdu_en)
-@@ -933,6 +955,73 @@ void mtk_foe_entry_clear(struct mtk_ppe
+@@ -932,6 +955,73 @@ void mtk_foe_entry_clear(struct mtk_ppe
  	spin_unlock_bh(&ppe_lock);
  }
  
@@ -141,7 +149,7 @@ v1: Add xfrm hw offload
  
  enum {
  	MTK_FOE_STATE_INVALID,
-@@ -409,6 +421,10 @@ int mtk_foe_entry_set_vlan(struct mtk_et
+@@ -407,6 +419,10 @@ int mtk_foe_entry_set_vlan(struct mtk_et
  			   int vid);
  int mtk_foe_entry_set_pppoe(struct mtk_eth *eth, struct mtk_foe_entry *entry,
  			    int sid);
@@ -152,7 +160,7 @@ v1: Add xfrm hw offload
  int mtk_foe_entry_set_wdma(struct mtk_eth *eth, struct mtk_foe_entry *entry,
  			   int wdma_idx, int txq, int bss, int wcid,
  			   bool amsdu_en);
-@@ -423,5 +439,6 @@ void mtk_foe_entry_get_stats(struct mtk_
+@@ -421,5 +437,6 @@ void mtk_foe_entry_get_stats(struct mtk_
  int mtk_flow_entry_match_len(struct mtk_eth *eth, struct mtk_foe_entry *entry);
  bool mtk_flow_entry_match(struct mtk_eth *eth, struct mtk_flow_entry *entry,
  			  struct mtk_foe_entry *data, int len);

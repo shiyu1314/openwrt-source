@@ -19,9 +19,9 @@ Subject: [PATCH] arm64: dts: mt7988: add led config for aqr 10gphy
 
 --- a/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth1-aqr.dtso
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth1-aqr.dtso
-@@ -26,6 +26,29 @@
- 				firmware-name = "Rhe-05.06-Candidate9-AQR_Mediatek_23B_P5_ID45824_LCLVER1.cld";
- 				eee-broken-10gt;
+@@ -28,6 +28,29 @@
+ 				eee-broken-5gt;
+ 				eee-broken-2_5gt;
  				eee-broken-1000t;
 +
 +				leds {
@@ -51,9 +51,9 @@ Subject: [PATCH] arm64: dts: mt7988: add led config for aqr 10gphy
  	};
 --- a/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth2-aqr.dtso
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-rfb-eth2-aqr.dtso
-@@ -26,6 +26,29 @@
- 				firmware-name = "Rhe-05.06-Candidate9-AQR_Mediatek_23B_P5_ID45824_LCLVER1.cld";
- 				eee-broken-10gt;
+@@ -28,6 +28,29 @@
+ 				eee-broken-5gt;
+ 				eee-broken-2_5gt;
  				eee-broken-1000t;
 +
 +				leds {

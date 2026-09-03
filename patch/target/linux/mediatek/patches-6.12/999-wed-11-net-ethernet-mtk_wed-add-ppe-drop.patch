@@ -22,7 +22,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -2074,6 +2074,18 @@ u32 mtk_r32(struct mtk_eth *eth, unsigne
+@@ -2087,6 +2087,18 @@ u32 mtk_r32(struct mtk_eth *eth, unsigne
  u32 mtk_m32(struct mtk_eth *eth, u32 mask, u32 set, unsigned int reg);
  u64 mtk_r64(struct mtk_eth *eth, unsigned reg);
  

@@ -121,7 +121,7 @@ v1: Add SKB headroom copy support for tunnel packets
 \ No newline at end of file
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -7407,6 +7407,8 @@ static int mtk_probe(struct platform_dev
+@@ -7400,6 +7400,8 @@ static int mtk_probe(struct platform_dev
  	schedule_delayed_work(&eth->reset.monitor_work,
  			      MTK_DMA_MONITOR_TIMEOUT);
  
@@ -130,7 +130,7 @@ v1: Add SKB headroom copy support for tunnel packets
  	return 0;
  
  err_unreg_netdev:
-@@ -7435,6 +7437,8 @@ static void mtk_remove(struct platform_d
+@@ -7428,6 +7430,8 @@ static void mtk_remove(struct platform_d
  	struct mtk_mac *mac;
  	int i;
  

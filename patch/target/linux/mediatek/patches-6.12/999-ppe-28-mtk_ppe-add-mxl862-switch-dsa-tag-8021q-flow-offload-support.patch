@@ -21,7 +21,7 @@ Subject: [PATCH] net: ethernet: mtk_ppe: add mxl862 switch dsa tag 8021q flow
 
 --- a/drivers/net/ethernet/mediatek/mtk_ppe.c
 +++ b/drivers/net/ethernet/mediatek/mtk_ppe.c
-@@ -538,20 +538,29 @@ int mtk_foe_entry_set_ipv6_tuple(struct
+@@ -537,20 +537,29 @@ int mtk_foe_entry_set_ipv6_tuple(struct
  }
  
  int mtk_foe_entry_set_dsa(struct mtk_eth *eth, struct mtk_foe_entry *entry,
@@ -62,7 +62,7 @@ Subject: [PATCH] net: ethernet: mtk_ppe: add mxl862 switch dsa tag 8021q flow
  int mtk_foe_entry_set_dscp(struct mtk_eth *eth, struct mtk_foe_entry *entry,
 --- a/drivers/net/ethernet/mediatek/mtk_ppe.h
 +++ b/drivers/net/ethernet/mediatek/mtk_ppe.h
-@@ -402,7 +402,7 @@ int mtk_foe_entry_set_ipv6_tuple(struct
+@@ -400,7 +400,7 @@ int mtk_foe_entry_set_ipv6_tuple(struct
  				 __be32 *src_addr, __be16 src_port,
  				 __be32 *dest_addr, __be16 dest_port);
  int mtk_foe_entry_set_dsa(struct mtk_eth *eth, struct mtk_foe_entry *entry,
