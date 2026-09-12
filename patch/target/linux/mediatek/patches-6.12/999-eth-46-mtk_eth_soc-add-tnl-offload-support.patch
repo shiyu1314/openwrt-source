@@ -16,7 +16,7 @@ v2: Add encrypted tunnel offload support
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -326,6 +326,9 @@ static const char * const mtk_clks_sourc
+@@ -329,6 +329,9 @@ static const char * const mtk_clks_sourc
  	"top_netsys_warp_sel",
  };
  
@@ -26,7 +26,7 @@ v2: Add encrypted tunnel offload support
  void mtk_w32(struct mtk_eth *eth, u32 val, unsigned reg)
  {
  	__raw_writel(val, eth->base + reg);
-@@ -2636,13 +2639,14 @@ static int mtk_poll_rx(struct napi_struc
+@@ -2639,13 +2642,14 @@ static int mtk_poll_rx(struct napi_struc
  	int done = 0, bytes = 0;
  	dma_addr_t dma_addr = DMA_MAPPING_ERROR;
  	int ppe_idx = 0;
@@ -42,7 +42,7 @@ v2: Add encrypted tunnel offload support
  		u32 hash, reason;
  		int mac = 0;
  
-@@ -2677,7 +2681,15 @@ static int mtk_poll_rx(struct napi_struc
+@@ -2680,7 +2684,15 @@ static int mtk_poll_rx(struct napi_struc
  			     !eth->netdev[mac]))
  			goto release_desc;
  

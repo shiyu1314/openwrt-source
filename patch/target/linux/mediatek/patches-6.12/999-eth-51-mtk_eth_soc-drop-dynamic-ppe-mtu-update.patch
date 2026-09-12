@@ -29,7 +29,7 @@ unexpected behavior on offloaded flows.
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -4648,7 +4648,7 @@ static int mtk_open(struct net_device *d
+@@ -4662,7 +4662,7 @@ static int mtk_open(struct net_device *d
  	struct mtk_mac *mac = netdev_priv(dev);
  	struct mtk_eth *eth = mac->hw;
  	struct mtk_mac *target_mac;
@@ -38,7 +38,7 @@ unexpected behavior on offloaded flows.
  
  	ppe_num = eth->soc->ppe_num;
  
-@@ -4690,10 +4690,6 @@ static int mtk_open(struct net_device *d
+@@ -4704,10 +4704,6 @@ static int mtk_open(struct net_device *d
  			mtk_gdm_config(eth, target_mac->id, gdm_config);
  		}
  
@@ -49,7 +49,7 @@ unexpected behavior on offloaded flows.
  		if (MTK_HAS_CAPS(eth->soc->caps, MTK_HWTSTAMP))
  			mtk_ptp_clock_init(eth);
  
-@@ -5762,16 +5758,13 @@ static int mtk_change_mtu(struct net_dev
+@@ -5776,16 +5772,13 @@ static int mtk_change_mtu(struct net_dev
  {
  	struct mtk_mac *mac = netdev_priv(dev);
  	struct mtk_eth *eth = mac->hw;

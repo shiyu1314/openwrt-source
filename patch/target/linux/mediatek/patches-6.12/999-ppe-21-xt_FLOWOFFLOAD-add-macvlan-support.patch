@@ -40,7 +40,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  /*
   * macvlan network devices have devices nesting below it and are a special
   * "super class" of normal network devices; split their locks off into a
-@@ -1225,6 +1235,7 @@ static const struct net_device_ops macvl
+@@ -1227,6 +1237,7 @@ static const struct net_device_ops macvl
  	.ndo_features_check	= passthru_features_check,
  	.ndo_hwtstamp_get	= macvlan_hwtstamp_get,
  	.ndo_hwtstamp_set	= macvlan_hwtstamp_set,

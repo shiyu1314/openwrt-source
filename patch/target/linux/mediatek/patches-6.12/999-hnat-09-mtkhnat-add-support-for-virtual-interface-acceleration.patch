@@ -45,7 +45,7 @@ Subject: [PATCH]
  MODULE_AUTHOR("Ville Nuorvala");
  MODULE_DESCRIPTION("IPv6 tunneling device");
  MODULE_LICENSE("GPL");
-@@ -1939,6 +1944,22 @@ int ip6_tnl_get_iflink(const struct net_
+@@ -1942,6 +1947,22 @@ int ip6_tnl_get_iflink(const struct net_
  }
  EXPORT_SYMBOL(ip6_tnl_get_iflink);
  
@@ -68,7 +68,7 @@ Subject: [PATCH]
  int ip6_tnl_encap_add_ops(const struct ip6_tnl_encap_ops *ops,
  			  unsigned int num)
  {
-@@ -2000,6 +2021,9 @@ static const struct net_device_ops ip6_t
+@@ -2003,6 +2024,9 @@ static const struct net_device_ops ip6_t
  	.ndo_change_mtu = ip6_tnl_change_mtu,
  	.ndo_get_stats64 = dev_get_tstats64,
  	.ndo_get_iflink = ip6_tnl_get_iflink,

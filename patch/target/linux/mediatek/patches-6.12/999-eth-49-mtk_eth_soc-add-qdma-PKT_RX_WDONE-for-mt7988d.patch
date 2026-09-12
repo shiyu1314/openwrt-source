@@ -21,7 +21,7 @@ Without this patch, the QDMA may encounter a data coherence issue on the MT7988D
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -4463,6 +4463,9 @@ static int mtk_start_dma(struct mtk_eth
+@@ -4477,6 +4477,9 @@ static int mtk_start_dma(struct mtk_eth
  			val |= MTK_MUTLI_CNT | MTK_RESV_BUF |
  			       MTK_WCOMP_EN | MTK_DMAD_WR_WDONE |
  			       MTK_CHK_DDONE_EN;

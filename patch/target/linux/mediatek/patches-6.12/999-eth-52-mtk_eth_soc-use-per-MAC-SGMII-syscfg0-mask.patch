@@ -14,7 +14,7 @@ Signed-off-by: evan.zhang <evan.zhang@mediatek.com>
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -709,6 +709,25 @@ static void mtk_set_mcr_max_rx(struct mt
+@@ -712,6 +712,25 @@ static void mtk_set_mcr_max_rx(struct mt
  	}
  }
  
@@ -40,7 +40,7 @@ Signed-off-by: evan.zhang <evan.zhang@mediatek.com>
  static void mtk_mac_config(struct phylink_config *config, unsigned int mode,
  			   const struct phylink_link_state *state)
  {
-@@ -716,7 +735,7 @@ static void mtk_mac_config(struct phylin
+@@ -719,7 +738,7 @@ static void mtk_mac_config(struct phylin
  					   phylink_config);
  	struct mtk_eth *eth = mac->hw;
  	int val, ge_mode, err = 0;
@@ -49,7 +49,7 @@ Signed-off-by: evan.zhang <evan.zhang@mediatek.com>
  
  	/* MT76x8 has no hardware settings between for the MAC */
  	if (!MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628) &&
-@@ -819,11 +838,12 @@ static void mtk_mac_config(struct phylin
+@@ -822,11 +841,12 @@ static void mtk_mac_config(struct phylin
  		/* The path GMAC to SGMII will be enabled once the SGMIISYS is
  		 * being setup done.
  		 */
@@ -64,7 +64,7 @@ Signed-off-by: evan.zhang <evan.zhang@mediatek.com>
  
  		/* Save the syscfg0 value for mac_finish */
  		mac->syscfg0 = val;
-@@ -885,9 +905,12 @@ static int mtk_mac_finish(struct phylink
+@@ -888,9 +908,12 @@ static int mtk_mac_finish(struct phylink
  
  	/* Enable SGMII */
  	if (interface == PHY_INTERFACE_MODE_SGMII ||

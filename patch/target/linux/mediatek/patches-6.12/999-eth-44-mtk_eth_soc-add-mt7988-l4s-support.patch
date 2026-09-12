@@ -20,7 +20,7 @@ Subject: [PATCH] net: ethernet: mtk_eth_soc: add mt7988 l4s support
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -4545,6 +4545,10 @@ static int mtk_open(struct net_device *d
+@@ -4559,6 +4559,10 @@ static int mtk_open(struct net_device *d
  				target_mac->ppe_idx = 0;
  				gdm_config = soc->reg_map->gdma_to_ppe[0];
  			}

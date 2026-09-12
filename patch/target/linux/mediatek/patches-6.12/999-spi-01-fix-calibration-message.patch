@@ -10,7 +10,7 @@ v1: Initial calibration message handling fix.
 
 --- a/drivers/mtd/nand/spi/core.c
 +++ b/drivers/mtd/nand/spi/core.c
-@@ -1517,7 +1517,7 @@ static int spinand_init(struct spinand_d
+@@ -1518,7 +1518,7 @@ static int spinand_init(struct spinand_d
  
  	ret = spi_mem_do_calibration(spinand->spimem, spinand_cal_read, spinand);
  	if (ret)

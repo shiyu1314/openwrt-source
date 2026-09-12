@@ -13,7 +13,7 @@ v2: Support tunnel over IPSec hardware offload
 
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
-@@ -842,6 +842,7 @@ enum net_device_path_type {
+@@ -844,6 +844,7 @@ enum net_device_path_type {
  	DEV_PATH_DSLITE,
  	DEV_PATH_6RD,
  	DEV_PATH_MTK_WDMA,
@@ -21,7 +21,7 @@ v2: Support tunnel over IPSec hardware offload
  };
  
  struct net_device_path {
-@@ -874,9 +875,30 @@ struct net_device_path {
+@@ -876,9 +877,30 @@ struct net_device_path {
  			u8 bss;
  			u8 amsdu;
  		} mtk_wdma;

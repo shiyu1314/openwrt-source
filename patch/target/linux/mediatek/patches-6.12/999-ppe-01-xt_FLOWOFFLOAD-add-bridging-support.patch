@@ -26,7 +26,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
 
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
-@@ -3142,6 +3142,8 @@ int dev_get_iflink(const struct net_devi
+@@ -3183,6 +3183,8 @@ int dev_get_iflink(const struct net_devi
  int dev_fill_metadata_dst(struct net_device *dev, struct sk_buff *skb);
  int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
  			  struct net_device_path_stack *stack);

@@ -5,6 +5,7 @@ Add cryptographic TX support for IPsec ESP tunnels on NETSYSv3. This enables
 hardware offload for IPsec encryption via EIP197 engine, with proper descriptor
 handling for crypto DMA transport and tunnel metadata.
 ---
+v4: Add pppoe flag in mtk_tnl_desc.
 v3: Add extra QDMA path after EIP197 SW inline encryption.
 v2: Add txd info for IPSec inline mode in gro frag_list processing.
 v1: Refactor and decouple crypto TX with NF_HNAT driver.
@@ -12,7 +13,7 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -1785,6 +1785,9 @@ static void mtk_tx_set_dma_desc_v2(struc
+@@ -1788,6 +1788,9 @@ static void mtk_tx_set_dma_desc_v2(struc
  	}
  
  	data |= TX_DMA_SWC_V2 | QID_BITS_V2(info->qid);
@@ -22,7 +23,7 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
  	WRITE_ONCE(desc->txd4, data);
  
  	data = 0;
-@@ -1805,7 +1808,11 @@ static void mtk_tx_set_dma_desc_v2(struc
+@@ -1808,7 +1811,11 @@ static void mtk_tx_set_dma_desc_v2(struc
  	WRITE_ONCE(desc->txd6, data);
  
  	WRITE_ONCE(desc->txd7, 0);
@@ -35,7 +36,7 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
  }
  
  static void mtk_tx_set_dma_desc(struct net_device *dev, void *txd,
-@@ -1938,12 +1945,22 @@ next:
+@@ -1941,12 +1948,22 @@ next:
  	txd_info = (struct mtk_tx_dma_desc_info){
  		.gso = gso,
  		.qid = queue,
@@ -58,7 +59,7 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
  	if (cur_skb != skb) {
  		struct tcphdr *th, *th2;
  
-@@ -2018,6 +2035,14 @@ next_frag:
+@@ -2021,6 +2038,14 @@ next_frag:
  		memset(&txd_info, 0, sizeof(struct mtk_tx_dma_desc_info));
  		txd_info.qid = queue;
  		offset = 0;
@@ -128,7 +129,7 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
  	u8		vlan:1;
 --- /dev/null
 +++ b/drivers/net/ethernet/mediatek/mtk_tnl.h
-@@ -0,0 +1,42 @@
+@@ -0,0 +1,48 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2026 MediaTek Inc.
@@ -136,6 +137,8 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
 +
 +#ifndef MTK_TNL_H
 +#define MTK_TNL_H
++
++#include <linux/skbuff.h>
 +
 +struct mtk_tnl_desc {
 +	u32 entry : 15;
@@ -160,15 +163,18 @@ v1: Refactor and decouple crypto TX with NF_HNAT driver.
 +	u32 tops : 6;
 +	u32 is_decap : 1;
 +	u32 cdrt : 8;
-+	u32 resv3 : 4;
++	u32 is_decrypt : 1;
++	u32 is_pppoe : 1;
++	u32 resv3 : 2;
 +	u32 magic_tag_protect : 16;
 +} __packed;
 +
 +#define TNL_MAGIC_TAG 0x6789
 +#define skb_tnl_cdrt(skb) (((struct mtk_tnl_desc *)((skb)->head))->cdrt)
++#define skb_tnl_tops(skb) (((struct mtk_tnl_desc *)((skb)->head))->tops)
 +#define skb_tnl_set_cdrt(skb, cdrt) ((skb_tnl_cdrt(skb)) = (cdrt))
 +#define skb_tnl_magic_tag(skb) (((struct mtk_tnl_desc *)((skb)->head))->magic_tag_protect)
 +#define is_tnl_tag_valid(skb) (skb_tnl_magic_tag(skb) == TNL_MAGIC_TAG)
++#define skb_tnl_is_pppoe(skb) (((struct mtk_tnl_desc *)((skb)->head))->is_pppoe)
 +
 +#endif /* MTK_TNL_H */
-\ No newline at end of file

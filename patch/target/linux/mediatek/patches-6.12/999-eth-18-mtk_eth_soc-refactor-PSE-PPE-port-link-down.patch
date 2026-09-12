@@ -26,7 +26,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -5349,15 +5349,10 @@ static void mtk_prepare_for_reset(struct
+@@ -5363,15 +5363,10 @@ static void mtk_prepare_for_reset(struct
  	int i;
  
  	/* set FE PPE ports link down */
@@ -46,7 +46,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	}
  
  	/* adjust PPE configurations to prepare for reset */
-@@ -5378,7 +5373,6 @@ static void mtk_pending_work(struct work
+@@ -5392,7 +5387,6 @@ static void mtk_pending_work(struct work
  {
  	struct mtk_eth *eth = container_of(work, struct mtk_eth, pending_work);
  	unsigned long restart = 0;
@@ -54,7 +54,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	int i;
  
  	rtnl_lock();
-@@ -5421,19 +5415,6 @@ static void mtk_pending_work(struct work
+@@ -5435,19 +5429,6 @@ static void mtk_pending_work(struct work
  		}
  	}
  

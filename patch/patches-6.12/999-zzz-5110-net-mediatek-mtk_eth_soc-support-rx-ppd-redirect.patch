@@ -51,7 +51,7 @@
  		}
  
  		if (unlikely(mac < 0 || mac >= MTK_MAX_DEVS ||
-@@ -2988,6 +3007,12 @@ static int mtk_poll_rx(struct napi_struc
+@@ -2989,6 +3008,12 @@ static int mtk_poll_rx(struct napi_struc
  				trace_printk("[%s] reason=0x%x(force to CPU) from WAN to Ext\n",
  					     __func__, skb_hnat_reason(skb));
  				skb->pkt_type = PACKET_HOST;
@@ -64,7 +64,7 @@
  			}
  
  			trace_printk("[%s] rxd:(entry=%x,sport=%x,reason=%x,alg=%x\n",
-@@ -3047,6 +3072,12 @@ static int mtk_poll_rx(struct napi_struc
+@@ -3048,6 +3073,12 @@ static int mtk_poll_rx(struct napi_struc
  			mtk_eth_debugfs_hwlro_flush_stats_update(eth, ring->ring_no, &trxd);
  		}
  

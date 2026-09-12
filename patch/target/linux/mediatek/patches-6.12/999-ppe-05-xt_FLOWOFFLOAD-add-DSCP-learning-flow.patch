@@ -421,7 +421,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  #include <net/netfilter/nf_conntrack_core.h>
  #include <net/netfilter/nf_conntrack_l4proto.h>
  #include <net/netfilter/nf_conntrack_tuple.h>
-@@ -341,6 +342,7 @@ static void flow_offload_del(struct nf_f
+@@ -342,6 +343,7 @@ static void flow_offload_del(struct nf_f
  
  void flow_offload_teardown(struct flow_offload *flow)
  {
