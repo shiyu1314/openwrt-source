@@ -1,0 +1,25 @@
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -673,7 +673,7 @@
+ 		}
+ 	}
+ 
+-	if (mtk_is_xlat464_enabled() && !strncmp(idev->name, "464-", 4)) {
++	if (mtk_is_xlat464_enabled() && idev && !strncmp(idev->name, "464-", 4)) {
+ 		/* IPv4 packets arriving from a 464xlat device are 6-to-4 (XLAT64),
+ 		 * IPv6 packets arriving from a 464xlat device are 4-to-6 (XLAT46).
+ 		 */
+@@ -904,6 +904,13 @@
+ {
+ 	int err;
+ 
++	/* When CONFIG_NET_MEDIATEK_HNAT is enabled, the in-kernel PPE offload
++	 * init (rhashtable_init for flow_table) is skipped, but ndo_setup_tc
++	 * still points here. Bail out if flow_table was never initialized.
++	 */
++	if (!rcu_access_pointer(eth->flow_table.tbl))
++		return -EOPNOTSUPP;
++
+ 	mutex_lock(&mtk_flow_offload_mutex);
+ 	switch (cls->command) {
+ 	case FLOW_CLS_REPLACE:
