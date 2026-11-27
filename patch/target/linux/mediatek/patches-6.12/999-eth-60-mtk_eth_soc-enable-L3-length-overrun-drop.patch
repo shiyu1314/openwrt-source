@@ -216,7 +216,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	u32 status, val;
  
  	status = mtk_r32(eth, MTK_FE_INT_STATUS) & mtk_r32(eth, MTK_FE_INT_ENABLE);
-@@ -4529,6 +4706,85 @@ static irqreturn_t mtk_handle_irq_misc(i
+@@ -4528,6 +4705,85 @@ static irqreturn_t mtk_handle_irq_misc(i
  	return IRQ_HANDLED;
  }
  
@@ -302,7 +302,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  #ifdef CONFIG_NET_POLL_CONTROLLER
  static void mtk_poll_controller(struct net_device *dev)
  {
-@@ -5788,6 +6044,18 @@ static int mtk_hw_init(struct mtk_eth *e
+@@ -5791,6 +6047,18 @@ static int mtk_hw_init(struct mtk_eth *e
  			mtk_w32(eth, 0x08000707, MTK_CDMW0_THRES);
  			mtk_w32(eth, 0x00000077, MTK_CDMW1_THRES);
  		} else if (eth->soc->caps == MT7987_CAPS) {

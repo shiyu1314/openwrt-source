@@ -70,7 +70,7 @@ v2: Add encrypted tunnel offload support
  #define TX_DMA_TPORT_MASK       GENMASK(3, 0)
  #define TX_DMA_FPORT_SHIFT_V2	8
  #define TX_DMA_FPORT_MASK_V2	0xf
-@@ -1964,6 +1966,9 @@ static inline bool mtk_interface_mode_is
+@@ -1965,6 +1967,9 @@ static inline bool mtk_interface_mode_is
  	}
  }
  

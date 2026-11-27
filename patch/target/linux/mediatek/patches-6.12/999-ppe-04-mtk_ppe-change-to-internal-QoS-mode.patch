@@ -47,7 +47,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	u8				l4s_toggle;
  	struct mtk_ppe			*ppe[3];
  	struct rhashtable		flow_table;
-@@ -2056,6 +2058,77 @@ static inline u32 mtk_get_ib2_multicast_
+@@ -2057,6 +2059,77 @@ static inline u32 mtk_get_ib2_multicast_
  	return MTK_FOE_IB2_MULTICAST;
  }
  

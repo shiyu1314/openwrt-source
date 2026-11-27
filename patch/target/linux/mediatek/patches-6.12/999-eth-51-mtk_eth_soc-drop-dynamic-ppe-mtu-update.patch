@@ -49,7 +49,7 @@ unexpected behavior on offloaded flows.
  		if (MTK_HAS_CAPS(eth->soc->caps, MTK_HWTSTAMP))
  			mtk_ptp_clock_init(eth);
  
-@@ -5777,7 +5773,6 @@ static int mtk_change_mtu(struct net_dev
+@@ -5781,7 +5777,6 @@ static int mtk_change_mtu(struct net_dev
  	struct mtk_eth *eth = mac->hw;
  	u32 length, rx_buf_len;
  	u32 old_mtu, max_mtu;
@@ -57,7 +57,7 @@ unexpected behavior on offloaded flows.
  
  	old_mtu = dev->mtu;
  	WRITE_ONCE(dev->mtu, new_mtu);
-@@ -5792,9 +5787,6 @@ static int mtk_change_mtu(struct net_dev
+@@ -5796,9 +5791,6 @@ static int mtk_change_mtu(struct net_dev
  		return -EINVAL;
  	}
  

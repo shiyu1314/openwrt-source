@@ -626,7 +626,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	mtk_dma_free(eth);
  
  	for (i = 0; i < ARRAY_SIZE(eth->ppe); i++)
-@@ -5591,6 +5610,10 @@ static int mtk_do_ioctl(struct net_devic
+@@ -5595,6 +5614,10 @@ static int mtk_do_ioctl(struct net_devic
  	struct mtk_mac *mac = netdev_priv(dev);
  
  	switch (cmd) {
@@ -637,7 +637,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	case SIOCGMIIPHY:
  	case SIOCGMIIREG:
  	case SIOCSMIIREG:
-@@ -6090,6 +6113,28 @@ static int mtk_set_pauseparam(struct net
+@@ -6094,6 +6117,28 @@ static int mtk_set_pauseparam(struct net
  	return phylink_ethtool_set_pauseparam(mac->phylink, pause);
  }
  
@@ -666,7 +666,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  static int mtk_get_eee(struct net_device *dev, struct ethtool_keee *eee)
  {
  	struct mtk_mac *mac = netdev_priv(dev);
-@@ -6253,6 +6298,7 @@ static const struct ethtool_ops mtk_etht
+@@ -6257,6 +6302,7 @@ static const struct ethtool_ops mtk_etht
  	.get_rxfh_indir_size	= mtk_get_rxfh_indir_size,
  	.get_rxfh		= mtk_get_rxfh,
  	.set_rxfh		= mtk_set_rxfh,
@@ -786,7 +786,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	const struct mtk_soc_data	*soc;
  
  	spinlock_t			dim_lock;
-@@ -1719,6 +1785,10 @@ struct mtk_mac {
+@@ -1720,6 +1786,10 @@ struct mtk_mac {
  	int				hwlro_ip_cnt;
  	unsigned int			syscfg0;
  	struct notifier_block		device_notifier;
@@ -797,7 +797,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  };
  
  #define MTK_MUX_CHANNELS_MAX	2
-@@ -1885,6 +1955,13 @@ int mtk_gmac_gephy_path_setup(struct mtk
+@@ -1886,6 +1956,13 @@ int mtk_gmac_gephy_path_setup(struct mtk
  int mtk_gmac_rgmii_path_setup(struct mtk_eth *eth, int mac_id);
  int mtk_gmac_usxgmii_path_setup(struct mtk_eth *eth, int mac_id);
  

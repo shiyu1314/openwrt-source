@@ -24,7 +24,7 @@ Subject: [PATCH] net: ethernet: mtk_eth_soc: add skb mark support for qos
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -6045,9 +6045,13 @@ static int mtk_set_rxfh(struct net_devic
+@@ -6049,9 +6049,13 @@ static int mtk_set_rxfh(struct net_devic
  static u16 mtk_select_queue(struct net_device *dev, struct sk_buff *skb,
  			    struct net_device *sb_dev)
  {

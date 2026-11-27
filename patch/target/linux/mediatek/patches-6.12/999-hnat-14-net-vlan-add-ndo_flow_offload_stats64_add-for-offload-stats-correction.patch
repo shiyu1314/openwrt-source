@@ -48,7 +48,7 @@ traffic.
  #ifdef CONFIG_NET_POLL_CONTROLLER
  static void vlan_dev_poll_controller(struct net_device *dev)
  {
-@@ -1085,6 +1105,7 @@ static const struct net_device_ops vlan_
+@@ -1091,6 +1111,7 @@ static const struct net_device_ops vlan_
  #if IS_ENABLED(CONFIG_NF_FLOW_TABLE)
  	.ndo_flow_offload_check = vlan_dev_flow_offload_check,
  #endif

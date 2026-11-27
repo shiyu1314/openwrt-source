@@ -63,7 +63,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  		val = MTK_QDMA_TX_SCH_MAX_WFQ | (MTK_QDMA_TX_SCH_MAX_WFQ << 16);
  		mtk_w32(eth, val, soc->reg_map->qdma.tx_sch_rate);
  		if (mtk_is_netsys_v2_or_greater(eth))
-@@ -6560,8 +6567,9 @@ static int mtk_set_rxfh(struct net_devic
+@@ -6563,8 +6570,9 @@ static int mtk_set_rxfh(struct net_devic
  static u16 mtk_select_queue(struct net_device *dev, struct sk_buff *skb,
  			    struct net_device *sb_dev)
  {
@@ -74,7 +74,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	unsigned int queue = 0;
  
  	if (mark > 0 && mark < dev->num_tx_queues)
-@@ -7615,6 +7623,7 @@ static const struct mtk_soc_data mt2701_
+@@ -7618,6 +7626,7 @@ static const struct mtk_soc_data mt2701_
  	.required_clks = MT7623_CLKS_BITMAP,
  	.required_pctl = true,
  	.version = 1,
@@ -82,7 +82,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.rss_num = 0,
  	.tx = {
  		DESC_SIZE(struct mtk_tx_dma),
-@@ -7639,6 +7648,7 @@ static const struct mtk_soc_data mt7621_
+@@ -7642,6 +7651,7 @@ static const struct mtk_soc_data mt7621_
  	.required_clks = MT7621_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 1,
@@ -90,7 +90,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 1,
  	.ppe_num = 1,
  	.hash_offset = 2,
-@@ -7668,6 +7678,7 @@ static const struct mtk_soc_data mt7622_
+@@ -7671,6 +7681,7 @@ static const struct mtk_soc_data mt7622_
  	.required_clks = MT7622_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 1,
@@ -98,7 +98,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 2,
  	.ppe_num = 1,
  	.hash_offset = 2,
-@@ -7697,6 +7708,7 @@ static const struct mtk_soc_data mt7623_
+@@ -7700,6 +7711,7 @@ static const struct mtk_soc_data mt7623_
  	.required_clks = MT7623_CLKS_BITMAP,
  	.required_pctl = true,
  	.version = 1,
@@ -106,7 +106,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 1,
  	.ppe_num = 1,
  	.hash_offset = 2,
-@@ -7728,6 +7740,7 @@ static const struct mtk_soc_data mt7629_
+@@ -7731,6 +7743,7 @@ static const struct mtk_soc_data mt7629_
  	.required_pctl = false,
  	.has_accounting = true,
  	.version = 1,
@@ -114,7 +114,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.rss_num = 0,
  	.tx = {
  		DESC_SIZE(struct mtk_tx_dma),
-@@ -7753,6 +7766,7 @@ static const struct mtk_soc_data mt7981_
+@@ -7756,6 +7769,7 @@ static const struct mtk_soc_data mt7981_
  	.required_clks = MT7981_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 2,
@@ -122,7 +122,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 2,
  	.ppe_num = 2,
  	.hash_offset = 4,
-@@ -7783,6 +7797,7 @@ static const struct mtk_soc_data mt7986_
+@@ -7786,6 +7800,7 @@ static const struct mtk_soc_data mt7986_
  	.required_clks = MT7986_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 2,
@@ -130,7 +130,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 2,
  	.ppe_num = 2,
  	.hash_offset = 4,
-@@ -7813,6 +7828,7 @@ static const struct mtk_soc_data mt7987_
+@@ -7816,6 +7831,7 @@ static const struct mtk_soc_data mt7987_
  	.required_clks = MT7987_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 3,
@@ -138,7 +138,7 @@ Signed-off-by: chak-kei.lam <chak-kei.lam@mediatek.com>
  	.offload_version = 2,
  	.ppe_num = 2,
  	.hash_offset = 4,
-@@ -7843,6 +7859,7 @@ static const struct mtk_soc_data mt7988_
+@@ -7846,6 +7862,7 @@ static const struct mtk_soc_data mt7988_
  	.required_clks = MT7988_CLKS_BITMAP,
  	.required_pctl = false,
  	.version = 3,

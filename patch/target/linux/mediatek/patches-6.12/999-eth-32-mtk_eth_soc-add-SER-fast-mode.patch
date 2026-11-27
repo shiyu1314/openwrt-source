@@ -213,7 +213,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	}
  
  	regmap_update_bits(eth->ethsys, ETHSYS_RSTCTRL, rst_mask, rst_mask);
-@@ -5679,6 +5758,8 @@ static void mtk_pending_work(struct work
+@@ -5683,6 +5762,8 @@ static void mtk_pending_work(struct work
  			mt7988_esw_force_link(eth, true);
  	}
  
@@ -224,7 +224,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	mtk_wed_fe_reset_complete();
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -1658,11 +1658,15 @@ struct mtk_eth {
+@@ -1659,11 +1659,15 @@ struct mtk_eth {
   */
  struct mtk_mac {
  	int				id;

@@ -38,9 +38,9 @@
  #define IS_L2_BRIDGE(x) (((x)->bfib1.pkt_type == L2_BRIDGE) ? 1 : 0)
  #define IS_IPV4_HNAPT(x) (((x)->bfib1.pkt_type == IPV4_HNAPT) ? 1 : 0)
  #define IS_IPV4_HNAT(x) (((x)->bfib1.pkt_type == IPV4_HNAT) ? 1 : 0)
-@@ -1480,6 +1482,8 @@ enum FoeIpAct {
- extern const struct of_device_id of_hnat_match[];
- extern struct mtk_hnat *hnat_priv;
+@@ -1505,6 +1507,8 @@ static inline int hnat_entry_vlan_fields
+ 	return 0;
+ }
  
 +extern struct net_device *g_rx_ppdev;
 +

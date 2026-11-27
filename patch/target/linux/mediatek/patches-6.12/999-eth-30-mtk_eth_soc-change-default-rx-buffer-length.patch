@@ -122,7 +122,7 @@ total CPU usage.
  static void mtk_hw_dump_reg(struct mtk_eth *eth, char *name, u32 offset, u32 range)
  {
  	u32 cur = offset;
-@@ -5257,15 +5266,9 @@ static int mtk_hw_init(struct mtk_eth *e
+@@ -5261,15 +5270,9 @@ static int mtk_hw_init(struct mtk_eth *e
  	 * invoked.
  	 */
  	for (i = 0; i < MTK_MAX_DEVS; i++) {
@@ -138,7 +138,7 @@ total CPU usage.
  		mtk_w32(eth, MAC_MCR_FORCE_LINK_DOWN, MTK_MAC_MCR(i));
  
  		if (mtk_is_netsys_v3_or_greater(eth) && eth->soc->caps == MT7988_CAPS)
-@@ -6570,10 +6573,7 @@ static int mtk_add_mac(struct mtk_eth *e
+@@ -6574,10 +6577,7 @@ static int mtk_add_mac(struct mtk_eth *e
  	eth->netdev[id]->irq = eth->irq_fe[MTK_FE_IRQ_SHARED];
  	eth->netdev[id]->dev.of_node = np;
  

@@ -98,7 +98,7 @@ support
  			MTK_RX_CFG_SDL_OFFSET), reg_map->pdma.rx_cfg);
  
  		lro_ctrl_dw0 |= MTK_PDMA_LRO_SDL << MTK_CTRL_DW0_SDL_OFFSET;
-@@ -5541,24 +5538,33 @@ static void mtk_uninit(struct net_device
+@@ -5545,24 +5542,33 @@ static void mtk_uninit(struct net_device
  
  static int mtk_change_mtu(struct net_device *dev, int new_mtu)
  {
@@ -138,7 +138,7 @@ support
  	return 0;
  }
  
-@@ -7150,6 +7156,8 @@ static int mtk_probe(struct platform_dev
+@@ -7154,6 +7160,8 @@ static int mtk_probe(struct platform_dev
  				   eth->netdev[i]->base_addr, eth->irq_fe[MTK_FE_IRQ_SHARED]);
  	}
  

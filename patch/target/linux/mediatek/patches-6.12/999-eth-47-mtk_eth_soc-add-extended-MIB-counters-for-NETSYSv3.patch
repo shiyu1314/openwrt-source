@@ -306,7 +306,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  		}
  	}
  
-@@ -5460,6 +5549,7 @@ static int mtk_hw_init(struct mtk_eth *e
+@@ -5464,6 +5553,7 @@ static int mtk_hw_init(struct mtk_eth *e
  					     XMAC_FORCE_LINK_MODE, MTK_XMAC_STS_FRC(i));
  
  			mtk_m32(eth, XMAC_MCR_TRX_DISABLE, XMAC_MCR_TRX_DISABLE, MTK_XMAC_MCR(i));
@@ -314,7 +314,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  		}
  	}
  
-@@ -5963,6 +6053,8 @@ static void mtk_get_drvinfo(struct net_d
+@@ -5967,6 +6057,8 @@ static void mtk_get_drvinfo(struct net_d
  	strscpy(info->driver, mac->hw->dev->driver->name, sizeof(info->driver));
  	strscpy(info->bus_info, dev_name(mac->hw->dev), sizeof(info->bus_info));
  	info->n_stats = ARRAY_SIZE(mtk_ethtool_stats);
@@ -323,7 +323,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  }
  
  static u32 mtk_get_msglevel(struct net_device *dev)
-@@ -6004,6 +6096,12 @@ static void mtk_get_strings(struct net_d
+@@ -6008,6 +6100,12 @@ static void mtk_get_strings(struct net_d
  			memcpy(data, mtk_ethtool_stats[i].str, ETH_GSTRING_LEN);
  			data += ETH_GSTRING_LEN;
  		}
@@ -336,7 +336,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  		if (mtk_page_pool_enabled(mac->hw))
  			page_pool_ethtool_stats_get_strings(data);
  		break;
-@@ -6020,6 +6118,8 @@ static int mtk_get_sset_count(struct net
+@@ -6024,6 +6122,8 @@ static int mtk_get_sset_count(struct net
  		int count = ARRAY_SIZE(mtk_ethtool_stats);
  		struct mtk_mac *mac = netdev_priv(dev);
  
@@ -345,7 +345,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  		if (mtk_page_pool_enabled(mac->hw))
  			count += page_pool_ethtool_stats_get_count();
  		return count;
-@@ -6074,6 +6174,10 @@ static void mtk_get_ethtool_stats(struct
+@@ -6078,6 +6178,10 @@ static void mtk_get_ethtool_stats(struct
  
  		for (i = 0; i < ARRAY_SIZE(mtk_ethtool_stats); i++)
  			*data_dst++ = *(data_src + mtk_ethtool_stats[i].offset);
@@ -391,7 +391,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	u64 rx_overflow;
  	u64 rx_fcs_errors;
  	u64 rx_short_errors;
-@@ -1975,6 +1990,7 @@ void mtk_stats_update_mac(struct mtk_mac
+@@ -1976,6 +1991,7 @@ void mtk_stats_update_mac(struct mtk_mac
  void mtk_w32(struct mtk_eth *eth, u32 val, unsigned reg);
  u32 mtk_r32(struct mtk_eth *eth, unsigned reg);
  u32 mtk_m32(struct mtk_eth *eth, u32 mask, u32 set, unsigned int reg);

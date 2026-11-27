@@ -29,7 +29,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
 
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -5408,6 +5408,54 @@ static void mt7988_esw_force_link(struct
+@@ -5412,6 +5412,54 @@ static void mt7988_esw_force_link(struct
  	__raw_writel(val, eth->esw_base + MT753X_PMCR_P(6));
  }
  
@@ -84,7 +84,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  static void mtk_prepare_for_reset(struct mtk_eth *eth)
  {
  	struct mtk_mac *mac;
-@@ -5460,6 +5508,7 @@ static void mtk_pending_work(struct work
+@@ -5464,6 +5512,7 @@ static void mtk_pending_work(struct work
  
  	mtk_hw_dump_all(eth);
  
@@ -92,7 +92,7 @@ Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
  	mtk_prepare_for_reset(eth);
  	mtk_wed_fe_reset();
  	/* Run again reset preliminary configuration in order to avoid any
-@@ -5503,6 +5552,7 @@ static void mtk_pending_work(struct work
+@@ -5507,6 +5556,7 @@ static void mtk_pending_work(struct work
  	clear_bit(MTK_RESETTING, &eth->state);
  
  	mtk_wed_fe_reset_complete();
